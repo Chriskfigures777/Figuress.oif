@@ -1440,7 +1440,7 @@ export default function Index() {
                 margin: "0 auto",
               }}
             >
-              Our proven 5-step process ensures your systems are built right,
+               5-step process ensures your systems are built right,
               implemented smoothly, and supported long-term.
             </p>
           </div>
@@ -1644,9 +1644,7 @@ export default function Index() {
                   marginBottom: "2rem",
                 }}
               >
-                Our team has helped dozens of businesses, nonprofits, and sales
-                teams save hundreds of hours through smart automation and
-                thoughtful system design. We're not just consultants—we're
+                 We're not just consultants—we're
                 partners in your growth journey.
               </p>
 
@@ -1750,166 +1748,7 @@ export default function Index() {
       </section>
 
       {/* Testimonials Section */}
-      <section
-        style={{
-          padding: "6rem 0",
-          background: "linear-gradient(135deg, #f8fffe 0%, #ffffff 100%)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 2rem",
-          }}
-        >
-          <div
-            style={{
-              textAlign: "center",
-              marginBottom: "4rem",
-            }}
-            className="animate-on-scroll"
-          >
-            <h2
-              style={{
-                fontSize: "2.5rem",
-                fontWeight: "700",
-                marginBottom: "1rem",
-                color: "#1f2937",
-              }}
-            >
-              What Our Clients Say
-            </h2>
-            <p
-              style={{
-                fontSize: "1.2rem",
-                color: "#6b7280",
-                maxWidth: "600px",
-                margin: "0 auto",
-              }}
-            >
-              Real results from real businesses who trusted us with their
-              systems.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(350px, 1fr))",
-              gap: "2rem",
-            }}
-          >
-            {[
-              {
-                name: "Sarah Johnson",
-                role: "CEO, GrowthCorp",
-                quote:
-                  "Figures Solutions transformed our chaotic lead management into a streamlined system. We've saved 20 hours per week and increased our conversion rate by 40%.",
-                rating: 5,
-                avatar: "SJ",
-              },
-              {
-                name: "Michael Chen",
-                role: "Operations Director, TechStart",
-                quote:
-                  "The automation they built for us eliminated 90% of our manual data entry. Our team can now focus on what actually moves the needle for our business.",
-                rating: 5,
-                avatar: "MC",
-              },
-              {
-                name: "Lisa Rodriguez",
-                role: "Executive Director, Hope Foundation",
-                quote:
-                  "As a nonprofit, every hour matters. The systems Figures Solutions built help us serve 3x more families with the same staff size. Incredible ROI.",
-                rating: 5,
-                avatar: "LR",
-              },
-            ].map((testimonial, index) => (
-              <div
-                key={index}
-                className="animate-on-scroll card-hover"
-                style={{
-                  background: "white",
-                  border: "1px solid rgba(60, 219, 192, 0.1)",
-                  borderRadius: "20px",
-                  padding: "2rem",
-                  boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
-                  animationDelay: `${index * 0.2}s`,
-                }}
-              >
-                <div
-                  style={{
-                    display: "flex",
-                    marginBottom: "1rem",
-                    color: "#3CDBC0",
-                    fontSize: "1.2rem",
-                  }}
-                >
-                  {"★".repeat(testimonial.rating)}
-                </div>
-
-                <p
-                  style={{
-                    fontSize: "1.1rem",
-                    lineHeight: "1.7",
-                    color: "#4b5563",
-                    marginBottom: "1.5rem",
-                    fontStyle: "italic",
-                  }}
-                >
-                  "{testimonial.quote}"
-                </p>
-
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    gap: "1rem",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "50px",
-                      height: "50px",
-                      background: "linear-gradient(135deg, #3CDBC0, #33bba6)",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "white",
-                      fontWeight: "600",
-                      fontSize: "1.1rem",
-                    }}
-                  >
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <h4
-                      style={{
-                        fontWeight: "600",
-                        color: "#1f2937",
-                        marginBottom: "0.25rem",
-                      }}
-                    >
-                      {testimonial.name}
-                    </h4>
-                    <p
-                      style={{
-                        color: "#6b7280",
-                        fontSize: "0.9rem",
-                      }}
-                    >
-                      {testimonial.role}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Contact / CTA Section */}
       <section
         id="contact"
