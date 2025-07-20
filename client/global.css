@@ -1,0 +1,283 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Mobile viewport and safe area improvements */
+@supports (padding: max(0px)) {
+  .safe-area-inset-top {
+    padding-top: max(env(safe-area-inset-top), 0px);
+  }
+}
+
+/* Mobile touch improvements */
+@media (hover: none) and (pointer: coarse) {
+  /* Improve touch targets on mobile */
+  button,
+  a,
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html,
+  body {
+    overflow-x: hidden;
+    width: 100%;
+  }
+}
+
+/* Prevent iOS zoom on form inputs */
+@media screen and (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Cross-browser smooth scrolling - GLOBAL SITE-WIDE SMOOTH SCROLLING */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Ensure smooth scrolling works for all anchor links */
+a[href^="#"] {
+  scroll-behavior: smooth;
+}
+
+/* Global smooth scrolling for all elements */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Respect user preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Enhanced smooth scrolling for webkit browsers */
+@supports (-webkit-overflow-scrolling: touch) {
+  html {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Smooth scroll padding to account for fixed header */
+html {
+  scroll-padding-top: 4rem;
+}
+
+/* Ensure sections are properly positioned for scrolling */
+section[id],
+div[id] {
+  scroll-margin-top: 4rem;
+}
+
+/* Mobile-first responsive typography */
+@media (max-width: 640px) {
+  /* Ensure text is large enough for mobile */
+  .text-xs {
+    font-size: 14px !important;
+  }
+  .text-sm {
+    font-size: 16px !important;
+  }
+
+  /* Improve touch targets on mobile */
+  button,
+  a[role="button"],
+  [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Desktop breakpoint improvements */
+@media (min-width: 768px) {
+  html {
+    scroll-padding-top: 4rem;
+  }
+
+  section[id],
+  div[id] {
+    scroll-margin-top: 4rem;
+  }
+}
+
+/* Large screen optimization */
+@media (min-width: 1024px) {
+  /* Better spacing for larger screens */
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ANIMATIONS FOR CHAT WIDGET */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40%,
+  43% {
+    transform: translateY(-10px);
+  }
+  70% {
+    transform: translateY(-5px);
+  }
+  90% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Ensure animations are smooth */
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+.animate-bounce {
+  animation: bounce 1s infinite;
+}
+
+@layer base {
+  /**
+   * Tailwind CSS theme
+   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
+   * A different format will require also updating the theme in tailwind.config.ts.
+  */
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 210 11% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 11% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 11% 15%;
+
+    --primary: 220 39% 11%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 13% 91%;
+    --secondary-foreground: 220 39% 11%;
+
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 212 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 212 100% 50%;
+
+    --radius: 0.75rem;
+
+    /* Modern Brand Color Palette */
+    --brand-green: 166 61% 55%; /* #3CDBC0 - Primary Green */
+    --brand-dark: 0 0% 12%; /* #1E1E1E - Dark Base/Text */
+    --brand-white: 0 0% 100%; /* #FFFFFF - Accent White */
+    --brand-gray: 0 0% 96%; /* #F5F5F5 - Highlight Gray */
+    --brand-shadow: 154 30% 87%; /* #D6EADF - Soft Shadow */
+    --brand-gray-text: 0 0% 45%; /* For secondary text */
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 220 39% 11%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 35% 15%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 35% 15%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 212 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 35% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 35% 18%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 212 100% 50%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 35% 18%;
+    --input: 220 35% 18%;
+    --ring: 212 100% 50%;
+
+    /* Modern Brand Colors Dark Mode */
+    --brand-green: 166 61% 55%; /* #3CDBC0 - Primary Green */
+    --brand-dark: 0 0% 96%; /* Light text for dark mode */
+    --brand-white: 0 0% 13%; /* Dark background */
+    --brand-gray: 0 0% 18%; /* Dark gray for cards */
+    --brand-shadow: 154 30% 25%; /* Darker shadow for dark mode */
+    --brand-gray-text: 0 0% 70%; /* Lighter gray for secondary text */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
