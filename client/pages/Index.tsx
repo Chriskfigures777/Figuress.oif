@@ -54,43 +54,55 @@ function ContactFormModal({ onClose }: ContactFormModalProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
+  
     if (!validateForm()) {
       return;
     }
-
+  
     setIsSubmitting(true);
-
+  
+    // Open a blank popup immediately (user-initiated)
+    const popup = window.open("", "_blank");
+  
+    if (!popup) {
+      setErrors({ submit: "Popup blocked. Please enable popups and try again." });
+      setIsSubmitting(false);
+      return;
+    }
+  
     try {
       const contactData: AirtableContactData = {
         name: formData.name.trim(),
         email: formData.email.trim(),
         phone: formData.phone.trim(),
       };
-
+  
       const response = await fetch("/api/airtable/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(contactData),
       });
-
+  
       if (!response.ok) {
         throw new Error("Failed to submit");
       }
-
+  
       const result: AirtableResponse = await response.json();
+  
       setIsSubmitting(false);
       setSubmitSuccess(true);
-
+  
       if (result.tallyFormLink) {
-        setTimeout(() => {
-          window.open(result.tallyFormLink, "_blank");
-          onClose();
-        }, 1000);
+        popup.location.href = result.tallyFormLink;
+      } else {
+        popup.close();
       }
+  
+      onClose();
     } catch (error) {
       setErrors({ submit: "Failed to submit. Please try again." });
       setIsSubmitting(false);
+      popup.close();
     }
   };
 
