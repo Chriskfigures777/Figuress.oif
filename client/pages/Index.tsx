@@ -86,7 +86,7 @@ function ContactFormModal({ onClose }: ContactFormModalProps) {
         setTimeout(() => {
           window.open(result.tallyFormLink, "_blank");
           onClose();
-        }, 2000);
+        }, 5000);
       }
     } catch (error) {
       setErrors({ submit: "Failed to submit. Please try again." });
